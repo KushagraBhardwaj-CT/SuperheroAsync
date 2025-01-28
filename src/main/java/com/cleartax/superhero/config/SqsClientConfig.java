@@ -21,24 +21,6 @@ public class SqsClientConfig {
 
     @Bean
     public SqsClient sqsClient() {
-     //   StaticCredentialsProvider credentialsProvider;
-//        if (sqsConfig.getSessionToken() != null && !sqsConfig.getSessionToken().isEmpty()) {
-//            credentialsProvider = StaticCredentialsProvider.create(
-//                    AwsSessionCredentials.create(
-//                            sqsConfig.getAccessKey(),
-//                            sqsConfig.getSecretKey(),
-//                            sqsConfig.getSessionToken()
-//                    )
-//            );
-//        } else {
-//            credentialsProvider = StaticCredentialsProvider.create(
-//                    AwsBasicCredentials.create(
-//                            sqsConfig.getAccessKey(),
-//                            sqsConfig.getSecretKey()
-//                    )
-//            );
-//        }
-
         return SqsClient.builder()
                 .endpointOverride(URI.create(sqsConfig.getQueueUrl()))
                 .region(Region.of(sqsConfig.getRegion()))

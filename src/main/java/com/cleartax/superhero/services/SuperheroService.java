@@ -36,6 +36,7 @@ public class SuperheroService {
         Superhero existingSuperhero = superheroRepository.findById(id).orElseThrow(() -> new RuntimeException("Superhero not found"));
         existingSuperhero.setName(superhero.getName());
         existingSuperhero.setUniverse(superhero.getUniverse());
+        existingSuperhero.setPower(superhero.getPower());
         return superheroRepository.save(existingSuperhero);
     }
 
