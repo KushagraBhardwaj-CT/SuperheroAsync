@@ -40,7 +40,7 @@ public class SuperheroController {
     }
     @GetMapping("/superhero/{id}")
     public Superhero getSuperheroById(@PathVariable String id) {
-        return SuperheroRepository.findById(id).orElseThrow(() -> new RuntimeException("Superhero not found"));
+        return superheroService.getSuperheroById(id);
     }
 
     @GetMapping("/updateName/{id}/{name}")
